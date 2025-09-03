@@ -34,4 +34,4 @@ jobs:
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           npm install
-          pm2 startOrRestart index.js --name far-alpha-api
+          pm2 restart far-alpha-api || pm2 start index.js --name far-alpha-api
