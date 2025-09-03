@@ -30,6 +30,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           cd /home/azureuser/app
-          git pull
+          git pull origin main
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           npm install
-          pm2 restart all
+          pm2 startOrRestart index.js --name far-alpha-api
